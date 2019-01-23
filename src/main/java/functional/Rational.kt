@@ -1,7 +1,7 @@
 package functional
 
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.Test
+import kotlin.test.assertEquals
 
 data class RationalNumber(val numerator: Int, val denominator: Int)
 

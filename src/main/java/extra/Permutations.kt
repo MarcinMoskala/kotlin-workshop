@@ -2,8 +2,8 @@ package extra
 
 import basics.factorial
 import functional.product
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.Test
+import kotlin.test.assertEquals
 
 /**
  *  Permutations are all different ways to arrange elements from some collection (https://en.wikipedia.org/wiki/Permutation).

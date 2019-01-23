@@ -1,6 +1,6 @@
 package delegates
 
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import kotlin.properties.ReadWriteProperty
 import kotlin.system.measureTimeMillis
 

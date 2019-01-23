@@ -1,7 +1,7 @@
 package basics
 
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.Test
+import kotlin.test.assertEquals
 
 // fizzBuzz function that returns String that represents what should be said in the FizzBuzz game for each number between 1 and 100.
 // We list all this numbers in new lines, but we replace some of them with:

@@ -1,7 +1,7 @@
 package extra
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+import org.junit.Test
 
 // Powerset returns set of all subsets including full set and empty set
 // https://en.wikipedia.org/wiki/Power_set

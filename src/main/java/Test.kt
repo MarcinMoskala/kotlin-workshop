@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions.assertEquals
+import kotlin.test.assertEquals
 
 sealed class Expression
 class Plus(val e1: Expression, val e2: Expression) : Expression()

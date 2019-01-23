@@ -1,8 +1,8 @@
 package dsl
 
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 fun getAnnouncements(passingStudentsListText: String, bestStudentsListText: String): List<Announcement> = TODO()
 //        announcements {

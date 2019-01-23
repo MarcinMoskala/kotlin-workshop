@@ -1,7 +1,7 @@
 package basics
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+import org.junit.Test
 
 // factorial(5) = 5! = 5 * 4 * 3 * 2 * 1 = 120
 // https://en.wikipedia.org/wiki/Factorial

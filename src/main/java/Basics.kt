@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+import org.junit.Test
 
 // https://en.wikipedia.org/wiki/Greatest_common_divisor
 fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a % b)

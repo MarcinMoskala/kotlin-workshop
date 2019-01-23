@@ -1,7 +1,7 @@
 package collections
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
+import org.junit.Test
 
 fun List<Student>.makeBestStudentsList(): String = TODO()
 
