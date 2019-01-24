@@ -2,17 +2,40 @@ import kotlin.test.assertEquals
 import org.junit.Test
 
 // https://en.wikipedia.org/wiki/Greatest_common_divisor
-fun gcd(a: Int, b: Int): Int = TODO()
+fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a % b)
 
 // Fibonacci number that starts from 1 and 1 (fib(0) == 1, fib(1) == 1, fib(2) == 2, fib(3) == 3, fib(4) == 5, fib(5) == 8)
 // https://en.wikipedia.org/wiki/Fibonacci_number
-fun fib(n: Int): Int = TODO()
+fun fib(n: Int): Int = fib2(n)
+
+fun fib1(n: Int): Int = if(n <= 1) 1 else fib1(n - 1) + fib1(n - 2)
+
+// Classic iterative, far from being readable
+fun fib2(n: Int): Int {
+    var l = 1
+    var lm1 = 1
+    for (i in 2..n) {
+        val tmp = l
+        l += lm1
+        lm1 = tmp
+    }
+    return l
+}
+
+// Recursive function with tail recursion (uses iterative process)
+// As efficient as iterative function
+fun fib3(n: Int) = fib3(n, 1, 1)
+
+tailrec fun fib3(n: Int, lm1: Int, l: Int): Int = if(n <= 1) l else fib3(n - 1, l, lm1 + l)
+
+// Hardcore functional solution
+fun fib4(n: Int) = (2..n).fold(1 to 1) { (f,s), _ -> s to (f + s) }.second
 
 @Suppress("FunctionName")
 internal class BasicsTests {
 
     @Test
-    fun `gcd returnes x for x and x`() {
+    fun `gcd returns x for x and x`() {
         assertEquals(5, gcd(5, 5))
         assertEquals(7, gcd(7, 7))
         for (x in 1..100) {
@@ -21,7 +44,7 @@ internal class BasicsTests {
     }
 
     @Test
-    fun `gcd returnes 1 when x and y are primes`() {
+    fun `gcd returns 1 when x and y are primes`() {
         assertEquals(1, gcd(3, 7))
         assertEquals(1, gcd(5, 7))
 

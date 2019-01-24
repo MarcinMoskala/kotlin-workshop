@@ -9,8 +9,51 @@ import kotlin.test.assertEquals
 // “Buzz” if number is divisible by 5
 // “FizzBuzz” if number is divisible both by 3 and 5 (by 15)
 fun fizzBuzz(): String {
-    TODO()
+    var text = ""
+    for(i in 1..100) {
+        text += when {
+            i % 15 == 0 -> "FizzBuzz"
+            i % 5 == 0 -> "Buzz"
+            i % 3 == 0 -> "Fizz"
+            else -> i
+        }
+        if(i != 100) text += ", "
+    }
+    return text
 }
+
+// Few other solutions:
+
+fun fizzBuzz2(): String {
+    var all = ""
+    for (i in 1..100) {
+        var text = ""
+        if (i % 3 == 0) text += "Fizz"
+        if (i % 5 == 0) text += "Buzz"
+        if(text.isEmpty()) text += i
+        if(i != 100) text += ", "
+        all += text
+    }
+    return all
+}
+
+// Functional solution:
+
+fun fizzBuzz3(): String = (1..100)
+        .map { numberToFizzBuzz(it) }
+        .joinToString()
+
+
+private fun numberToFizzBuzz(num: Int): String = when {
+    num % 15 == 0 -> "FizzBuzz"
+    num % 3 == 0 -> "Fizz"
+    num % 5 == 0 -> "Buzz"
+    else -> num.toString()
+}
+
+// Or even:
+
+fun fizzBuzz4(): String = (1..100).joinToString(transform = ::numberToFizzBuzz)
 
 class FizzBuzzTest {
 
