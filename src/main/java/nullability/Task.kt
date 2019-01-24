@@ -31,35 +31,35 @@ internal class BasicsTests {
     }
 
     @Test
-    fun `When client is null, email is not sent`() {
+    fun `When client is null, email we do not send email`() {
         val mailer = MailCollector()
         sendMessageToClient(null, "AAA", mailer)
         assertEquals(emptyList(), mailer.emails)
     }
 
     @Test
-    fun `When message is null, email is not sent`() {
+    fun `When message is null, we do not send email`() {
         val mailer = MailCollector()
         sendMessageToClient(Client(PersonalInfo("AAA")), null, mailer)
         assertEquals(emptyList(), mailer.emails)
     }
 
     @Test
-    fun `When personal info is null, email is not sent`() {
+    fun `When personal info is null, we do not send email`() {
         val mailer = MailCollector()
         sendMessageToClient(Client(null), "AAA", mailer)
         assertEquals(emptyList(), mailer.emails)
     }
 
     @Test
-    fun `When email is null, email is not sent`() {
+    fun `When email address is null, we do not send email`() {
         val mailer = MailCollector()
         sendMessageToClient(Client(PersonalInfo(null)), null, mailer)
         assertEquals(emptyList(), mailer.emails)
     }
 
     @Test
-    fun `Sends messages correctly`() {
+    fun `Sends messages correctly for correct values`() {
         val mailer = MailCollector()
         sendMessageToClient(Client(PersonalInfo("AAA")), "BBB", mailer)
         assertEquals(listOf(MailCollector.Mail("AAA", "BBB")), mailer.emails)
