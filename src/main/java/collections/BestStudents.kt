@@ -1,9 +1,16 @@
 package collections
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
-fun List<Student>.makeBestStudentsList(): String = TODO()
+fun List<Student>.makeBestStudentsList(): String = this
+        .filter { it.result >= 80 && it.pointsInSemester >= 30 }
+        .sortedByDescending { it.result }
+        .zip(listOf(5000) + List(3) { 3000 } + List(6) { 1000 })
+        .sortedWith(compareBy({ (student, _) -> student.surname }, { (student, _) -> student.name }))
+        .joinToString(separator = "\n") { (student, internship) ->
+            "${student.name} ${student.surname}, \$$internship"
+        }
 
 @Suppress("FunctionName")
 class BestStudentsListTest : StudentsTests() {

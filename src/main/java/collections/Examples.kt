@@ -20,6 +20,14 @@ inline fun <T, R> Iterable<T>.map(transformation: (T) -> R): List<R> {
     return list
 }
 
+inline fun <T, R> Iterable<T>.flatMap(transformation: (T) -> Iterable<R>): List<R> {
+    val list = arrayListOf<R>()
+    for (elem in this) {
+        list.addAll(transformation(elem))
+    }
+    return list
+}
+
 inline fun <T> Iterable<T>.filter(predicate: (T) -> Boolean): List<T> {
     val list = arrayListOf<T>()
     for (elem in this) {
@@ -37,6 +45,6 @@ fun main(args: Array<String>) {
             .forEach { println(it) }
 
     (1..100).filter { it % 7 == 0 }
-//            .flatMap { num -> (1..5).map { num + 10 * it } }
+            .flatMap { num -> (1..5).map { num + 10 * it } }
             .forEach { println(it) }
 }

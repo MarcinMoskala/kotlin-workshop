@@ -3,7 +3,10 @@ package collections
 import kotlin.test.assertEquals
 import org.junit.Test
 
-fun <T> List<T>.plusAt(index: Int, element: T): List<T> = TODO()
+fun <T> List<T>.plusAt(index: Int, element: T): List<T> = when (index) {
+    !in 0..this.size -> throw IllegalAccessError()
+    else -> this.take(index) + element + this.drop(index)
+}
 
 @Suppress("FunctionName")
 class PlusAtTests {
@@ -22,7 +25,7 @@ class PlusAtTests {
     private fun <T> assertIsThrowingError(f: () -> T) {
         try {
             f()
-        } catch (r: Error) {
+        } catch (r: Throwable) {
             return
         }
         assert(false)

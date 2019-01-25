@@ -1,6 +1,6 @@
 package java
 
-class KotlinPerson(
+class KotlinPerson @JvmOverloads constructor(
         var name: String = "",
         var age: Int = -1
 ) {
