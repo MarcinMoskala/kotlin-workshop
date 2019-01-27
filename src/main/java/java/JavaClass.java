@@ -9,6 +9,4 @@ public class JavaClass {
         // KotlinClass.staticFunction();
         // KotlinPerson person = new KotlinPerson("Marcin");
     }
-
-
 }
