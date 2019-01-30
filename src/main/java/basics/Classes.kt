@@ -11,13 +11,37 @@ interface Person {
     fun cheer(person: Person)
 }
 
-// TODO: Implement here class Businessman
+class Businessman(override val name: String, private val age: Int) : Person {
 
-// TODO: Implement here class Student
+    override val canBuyAlcohol: Boolean
+        get() = age > 18
+
+    override fun sayHello() {
+        println("Hello, my name is $name")
+    }
+
+    override fun cheer(person: Person) {
+        println("Hello ${person.name}")
+    }
+}
+
+class Student(override val name: String, private val age: Int) : Person {
+
+    override val canBuyAlcohol: Boolean
+        get() = age >= 18
+
+    override fun sayHello() {
+        println("Hi, I am $name")
+    }
+
+    override fun cheer(person: Person) {
+        println("Hi ${person.name}")
+    }
+}
 
 fun main(args: Array<String>) {
-    val businessman: Person = TODO("Use Businessman constructor here once it is implemented")
-    val student: Person = TODO("Use Businessman constructor here once it is implemented")
+    val businessman: Person = Businessman("John", 25)
+    val student: Person = Student("Jake", 17)
 
     businessman.sayHello()
     student.sayHello()
@@ -27,7 +51,7 @@ fun main(args: Array<String>) {
 
     fun sayIfCanBuyAlcohol(person: Person) {
         val modal = if(person.canBuyAlcohol) "can" else "can't"
-        println("${businessman.name} $modal buy alcohol")
+        println("${person.name} $modal buy alcohol")
     }
 
     sayIfCanBuyAlcohol(businessman)

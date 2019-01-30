@@ -2,12 +2,30 @@ package delegates
 
 import org.junit.Test
 import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 import kotlin.system.measureTimeMillis
 
-fun <T> mutableLazy(initializer: () -> T): ReadWriteProperty<Any?, T> = TODO()
+fun <T> mutableLazy(initializer: () -> T): ReadWriteProperty<Any?, T> = MutableLazy(initializer)
+
+private class MutableLazy<T>(val initializer: () -> T) : ReadWriteProperty<Any?, T> {
+    var internalValue: Any? = NotSetPointer
+
+    override fun getValue(thisRef: Any?, property: KProperty<*>): T {
+        if (internalValue == NotSetPointer) {
+            internalValue = initializer()
+        }
+        return internalValue as T
+    }
+
+    override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+        internalValue = value
+    }
+}
+
+private object NotSetPointer
 
 @Suppress("FunctionName")
-class SieveTests {
+class MutableLazyTests {
 
     @Test
     fun `I don't have to wait if I changed value first`() {

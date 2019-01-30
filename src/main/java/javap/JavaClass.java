@@ -1,6 +1,4 @@
-package java;
-
-import java.util.Comparator;
+package javap;
 
 public class JavaClass {
 

@@ -1,4 +1,4 @@
-package java
+package javap
 
 class KotlinPerson(
         var name: String = "",
@@ -6,4 +6,6 @@ class KotlinPerson(
 ) {
     val isMature: Boolean
         get() = age > 18
+
+    internal fun isAdult() = isMature
 }

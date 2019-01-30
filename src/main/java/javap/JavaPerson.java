@@ -1,4 +1,4 @@
-package java;
+package javap;
 
 import kotlin.jvm.internal.Intrinsics;
 import org.jetbrains.annotations.NotNull;

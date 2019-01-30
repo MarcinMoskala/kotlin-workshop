@@ -1,11 +1,15 @@
 package basics
 
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 // factorial(5) = 5! = 5 * 4 * 3 * 2 * 1 = 120
 // https://en.wikipedia.org/wiki/Factorial
-tailrec fun factorial(n: Int, acc: Long = 1L): Long = if(n <= 1) acc else factorial(n - 1, acc * n)
+//fun factorial(n: Int): Long  = if(n < 1) 1 else factorial(n - 1) * n
+//fun factorial(n: Int): Long = (1..n).fold(1L) { acc, i -> acc * i }
+
+fun factorial(n: Int): Long  = factorialHelper(n, 1)
+private tailrec fun factorialHelper(n: Int, acc: Long): Long  = if(n < 1) acc else factorialHelper(n - 1, acc * n)
 
 @Suppress("FunctionName")
 internal class FactorialTests {

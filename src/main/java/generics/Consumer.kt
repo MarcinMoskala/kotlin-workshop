@@ -1,9 +1,9 @@
 
-sealed class Consumer<T> {
+sealed class Consumer<in T> {
     abstract fun consume(elem: T)
 }
 
-class Printer<T>: Consumer<T>() {
+class Printer<in T>: Consumer<T>() {
     private var toPrint: T? = null
 
     fun print() {
@@ -15,7 +15,7 @@ class Printer<T>: Consumer<T>() {
     }
 }
 
-class Scanner<T>: Consumer<T>() {
+class Scanner<in T>: Consumer<T>() {
     private var toScan: T? = null
 
     fun scan() {
@@ -38,9 +38,8 @@ fun main(args: Array<String>) {
         is Scanner -> consumer.scan()
     }
 
-    // TODO: I want consumer to accept below declarations
-//    val c1: Consumer<Int> = Printer<Num>()
-//    val c2: Consumer<Int> = Scanner<Num>()
-//    val c3: Printer<Int> = Printer<Num>()
-//    val c4: Scanner<Int> = Scanner<Num>()
+    val c1: Consumer<Int> = Printer<Number>()
+    val c2: Consumer<Int> = Scanner<Number>()
+    val c3: Printer<Int> = Printer<Number>()
+    val c4: Scanner<Int> = Scanner<Number>()
 }
