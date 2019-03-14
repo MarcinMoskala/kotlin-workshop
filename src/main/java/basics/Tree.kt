@@ -6,8 +6,8 @@ abstract class Tree {
         return treeToString(this, StringBuilder()).toString()
     }
 }
-class Leaf(val value: String): Tree()
-class Node(val left: Tree, val right: Tree): Tree()
+data class Leaf(val value: String): Tree()
+data class Node(val left: Tree, val right: Tree): Tree()
 
 private fun treeToString(tree: Tree, sb: StringBuilder): StringBuilder {
     if(tree is Leaf) {
