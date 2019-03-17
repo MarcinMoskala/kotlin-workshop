@@ -56,12 +56,12 @@ class TreeOperationsTest {
 //    @Nested
 //    inner class SizeTests {
 //        @Test
-//        fun `Count of a leaf is 1`() {
+//        fun `Size of a leaf is 1`() {
 //            assertEquals(1, Leaf("AAA").height())
 //        }
 //
 //        @Test
-//        fun `Count of a single node with two leafs is 2`() {
+//        fun `Size of a single node with two leafs is 2`() {
 //            assertEquals(2, Node(Leaf("AAA"), Leaf("BBB")).height())
 //        }
 //
